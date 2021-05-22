@@ -1,4 +1,4 @@
-#Reminder for medicine, wake me up on a certain day, click my picture
+#Reminder for medicine, set alarms, click my picture
 
 import time
 import datetime
@@ -35,7 +35,7 @@ def picture():
         
         result=False
     return img_name
-    print("Snapshot Taken")
+    print("Picture Taken")
     videoCaptureObject.release()
     cv2.destroyAllWindows()
 
@@ -57,20 +57,14 @@ def Alarms():
     day_today=(week_days[week_num])
     print("Today is a", day_today)
 
+    dailyTasks=input("Enter list of tasks in order for today(separated by space-->5): ")
+    task_list=dailyTasks.split()
+    i = 0
+    while i < len(task_list):
+        task=input("Enter alarm for the task: ")
+        print("Alarm is set for", task_list[i],"at", task)
+        i = i + 1
     
-    taskToday=input("Enter the task you want to set the alarm for(classes/evening walk/dinner/prayers): ")
-    if taskToday=="Classes":
-        print("Your alarm is set for 1pm today.")
-            
-    elif taskToday=="Evening Walk":
-        print("Your alarm is set for 5pm today.")
-            
-    elif taskToday=="Dinner":
-        print("Your alarm is set for 9pm today.")
-            
-    elif taskToday=="Prayers":
-        print("Your alarm is set at 2:30pm for your prayers today.")
-        
 
 if task=="Reminder For Medicine":
     medicineReminder()
@@ -79,6 +73,7 @@ elif task=="Click My Picture":
 elif task=="Set Alarm":
     Alarms()
     
+
 
 
 
